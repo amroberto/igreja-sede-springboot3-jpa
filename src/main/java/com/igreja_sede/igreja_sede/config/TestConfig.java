@@ -7,21 +7,26 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.igreja_sede.igreja_sede.entities.City;
 import com.igreja_sede.igreja_sede.entities.State;
 import com.igreja_sede.igreja_sede.entities.User;
+import com.igreja_sede.igreja_sede.repositories.CityRepository;
 import com.igreja_sede.igreja_sede.repositories.StateRepository;
 import com.igreja_sede.igreja_sede.repositories.UserRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
-	
+
 	@Autowired
-	private UserRepository userRepository;	
-	
+	private UserRepository userRepository;
+
 	@Autowired
-    private StateRepository stateRepository;
-	
+	private StateRepository stateRepository;
+
+	@Autowired
+	private CityRepository cityRepository;
+
 	@Override
 	public void run(String... args) throws Exception {	
 		
@@ -61,6 +66,21 @@ public class TestConfig implements CommandLineRunner {
 
         stateRepository.saveAll(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27));
         
-	} 
+        City c1 = new City(null, "ALTA FLORESTA D OESTE", 1100015, s1);
+        City c2 = new City(null, "ARIQUEME", 1100023, s1);
+        City c3 = new City(null, "CABIXI", 1100031, s1);
+        City c4 = new City(null, "CACOAL", 1100049,s1);
+        City c5 = new City(null, "CEREJEIRAS", 1100056, s1);
+        City c6 = new City(null, "COLORADO DO OESTE", 1100064, s1);
+        City c7 = new City(null, "CORUMBIARA", 1100072, s1);
+        City c8 = new City(null, "COSTA MARQUES", 1100080, s1);
+        City c9 = new City(null, "ESPIGAO D''OESTE", 1100098, s1);
+        City c10 = new City(null, "GUAJARA-MIRIM", 1100106, s1);
+        City c11 = new City(null, "JARU", 1100114, s1);
+        City c12 = new City(null, "JI-PARANA", 1100122, s1);
+
+        cityRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12));
+
+	}
 
 }

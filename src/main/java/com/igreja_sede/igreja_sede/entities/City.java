@@ -6,34 +6,42 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_state")
-public class State {
+@Table(name = "city")
+public class City {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private String name;
-    private String abbreviation;
-    
-    public State() {
-    }
+	private Integer id;
+	
+	private String name;
+	private Integer ibge_code;
+	
+	@ManyToOne
+	@JoinColumn(name = "state_id")
+	private State state;
+	
+	public City() {
+	}
 
-	public State(Long id, String name, String abbreviation) {
+	
+	public City(Integer id, String name, Integer ibge_code, State state) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.abbreviation = abbreviation;
+		this.ibge_code = ibge_code;
+		this.state = state;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -45,12 +53,20 @@ public class State {
 		this.name = name;
 	}
 
-	public String getAbbreviation() {
-		return abbreviation;
+	public Integer getIbge_code() {
+		return ibge_code;
 	}
 
-	public void setAbbreviation(String abbreviation) {
-		this.abbreviation = abbreviation;
+	public void setIbge_code(Integer ibge_code) {
+		this.ibge_code = ibge_code;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 	@Override
@@ -66,7 +82,7 @@ public class State {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		State other = (State) obj;
+		City other = (City) obj;
 		return Objects.equals(id, other.id);
 	}
 }
