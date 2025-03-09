@@ -11,12 +11,14 @@ import com.igreja_sede.igreja_sede.entities.City;
 import com.igreja_sede.igreja_sede.entities.Community;
 import com.igreja_sede.igreja_sede.entities.MainChurch;
 import com.igreja_sede.igreja_sede.entities.State;
+import com.igreja_sede.igreja_sede.entities.Synod;
 import com.igreja_sede.igreja_sede.entities.User;
 import com.igreja_sede.igreja_sede.entities.enums.UnityType;
 import com.igreja_sede.igreja_sede.repositories.CityRepository;
 import com.igreja_sede.igreja_sede.repositories.CommunityRepository;
 import com.igreja_sede.igreja_sede.repositories.MainChurchRepository;
 import com.igreja_sede.igreja_sede.repositories.StateRepository;
+import com.igreja_sede.igreja_sede.repositories.SynodRepository;
 import com.igreja_sede.igreja_sede.repositories.UserRepository;
 
 @Configuration
@@ -37,6 +39,9 @@ public class TestConfig implements CommandLineRunner {
 
 	@Autowired
 	private MainChurchRepository mainChurchRepository;
+	
+	@Autowired
+	private SynodRepository synodRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {	
@@ -93,11 +98,19 @@ public class TestConfig implements CommandLineRunner {
 
        	MainChurch mainChurch = new MainChurch(null,"Igreja Matriz São João","Igreja Matriz São João Ltda","12345678000190","78000000","Avenida Principal","100","Próximo ao Centro",c10,"123456789","988888888","matriz.saojoao@exemplo.com","www.matrizsaojoao.com");
        		
-		userRepository.saveAll(Arrays.asList(u1, u2));
+       	Synod synod1 = new Synod(null,"Sinodo 1","Sinodo 1","12345678000280","78000000","Avenida Hum","101","Centro",c8,"123456789","988888888","sinodo1@exemplo.com","www.sinodo1.com", mainChurch);
+       	Synod synod2 = new Synod(null,"Sinodo 2","Sinodo 1","12345678000280","78000000","Avenida Hum","101","Centro",c9,"123456789","988888888","sinodo1@exemplo.com","www.sinodo1.com", mainChurch);
+       	Synod synod3 = new Synod(null,"Sinodo 3","Sinodo 1","12345678000280","78000000","Avenida Hum","101","Centro",c7,"123456789","988888888","sinodo1@exemplo.com","www.sinodo1.com", mainChurch);
+       	Synod synod4 = new Synod(null,"Sinodo 4","Sinodo 1","12345678000280","78000000","Avenida Hum","101","Centro",c6,"123456789","988888888","sinodo1@exemplo.com","www.sinodo1.com", mainChurch);
+       	Synod synod5 = new Synod(null,"Sinodo 5","Sinodo 1","12345678000280","78000000","Avenida Hum","101","Centro",c5,"123456789","988888888","sinodo1@exemplo.com","www.sinodo1.com", mainChurch);
+       	Synod synod6 = new Synod(null,"Sinodo 6","Sinodo 1","12345678000280","78000000","Avenida Hum","101","Centro",c4,"123456789","988888888","sinodo1@exemplo.com","www.sinodo1.com", mainChurch);
+		
+       	userRepository.saveAll(Arrays.asList(u1, u2));
         stateRepository.saveAll(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27));
         cityRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12));
         communityRepository.saveAll(Arrays.asList(community1, community2, community3, community4, community5));
         mainChurchRepository.save(mainChurch);
+        synodRepository.saveAll(Arrays.asList(synod1, synod2, synod3, synod4, synod5, synod6));
 	}
 
 }
