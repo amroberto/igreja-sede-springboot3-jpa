@@ -1,4 +1,4 @@
-# API da Igreja - Gestão Sinodal
+# API da Igreja - Gestão de Igreja
 
 Este projeto tem como objetivo fornecer uma API para gerenciar as entidades da igreja, como sede, sínodos, comunidades e paróquias, além de gerenciar lideranças, cargos e membros da igreja. A API será consumida em outros projetos da igreja, como o app da paróquia e o app de gestão sinodal.
 
