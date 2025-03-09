@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.igreja_sede.igreja_sede.entities.State;
 import com.igreja_sede.igreja_sede.entities.Synod;
 import com.igreja_sede.igreja_sede.repositories.SynodRepository;
 

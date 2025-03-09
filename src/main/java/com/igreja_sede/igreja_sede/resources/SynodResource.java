@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.igreja_sede.igreja_sede.entities.Synod;
-import com.igreja_sede.igreja_sede.entities.User;
 import com.igreja_sede.igreja_sede.services.SynodService;
 
 @RestController

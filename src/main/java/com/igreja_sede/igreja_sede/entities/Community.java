@@ -53,6 +53,10 @@ public class Community  implements Serializable {
 	@JoinColumn(name = "city_id", nullable = false)
 	private City city;
 
+	@ManyToOne
+	@JoinColumn(name = "synod_id", nullable = false)
+	private Synod synod;
+	
 	private String zipCode;
 
 	private String phone;
@@ -71,9 +75,10 @@ public class Community  implements Serializable {
 	public Community() {
 	}
 
+	
 	public Community(Long id, String name, String corporateName, UnityType unityType, String cnpj, String address,
-			String number, String complement, City city, String zipCode, String phone, String mobile, String email,
-			String website) {
+			String number, String complement, City city, Synod synod, String zipCode, String phone, String mobile,
+			String email, String website) {
 		this.id = id;
 		this.name = name;
 		this.corporateName = corporateName;
@@ -83,12 +88,14 @@ public class Community  implements Serializable {
 		this.number = number;
 		this.complement = complement;
 		this.city = city;
+		this.synod = synod;
 		this.zipCode = zipCode;
 		this.phone = phone;
 		this.mobile = mobile;
 		this.email = email;
 		this.website = website;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -156,6 +163,10 @@ public class Community  implements Serializable {
 
 	public City getCity() {
 		return city;
+	}
+
+	public Synod getSynod() {
+		return synod;
 	}
 
 	public String getZipCode() {

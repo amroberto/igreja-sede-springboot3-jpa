@@ -1,7 +1,11 @@
 package com.igreja_sede.igreja_sede.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Synod implements Serializable{
@@ -37,7 +42,11 @@ public class Synod implements Serializable{
     @ManyToOne
     @JoinColumn(name = "mainchurch_id", nullable = false)
     private MainChurch mainChurch;
-	
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "synod")
+    private List<Community> communities = new ArrayList<>();
+    
     public Synod() {
     }
 
