@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_city")
+@Table(name = "cities")
 public class City {
 
 	@Id
@@ -63,10 +63,6 @@ public class City {
 
 	public State getState() {
 		return state;
-	}
-
-	public void setState(State state) {
-		this.state = state;
 	}
 
 	@Override

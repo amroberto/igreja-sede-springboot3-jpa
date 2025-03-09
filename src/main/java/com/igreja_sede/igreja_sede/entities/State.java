@@ -1,15 +1,20 @@
 package com.igreja_sede.igreja_sede.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_state")
+@Table(name = "states")
 public class State {
 
 	@Id
@@ -19,6 +24,9 @@ public class State {
     private String name;
     private String abbreviation;
     
+    @JsonIgnore
+    @OneToMany(mappedBy = "state")
+    private List<City> cities = new ArrayList<>();
     public State() {
     }
 
