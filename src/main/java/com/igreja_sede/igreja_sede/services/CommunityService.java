@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.igreja_sede.igreja_sede.entities.Community;
-import com.igreja_sede.igreja_sede.entities.User;
 import com.igreja_sede.igreja_sede.repositories.CommunityRepository;
 
 @Service

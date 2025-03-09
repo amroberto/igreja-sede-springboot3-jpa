@@ -7,12 +7,8 @@ import java.util.Objects;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.igreja_sede.igreja_sede.entities.enums.UnityType;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,8 +17,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "communities")
-public class Community  implements Serializable {
+@Table(name = "main_church")
+public class MainChurch  implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -36,13 +32,11 @@ public class Community  implements Serializable {
 	@Column(nullable = false)
 	private String corporateName;
 
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
-	private UnityType unityType;
-
 	@Column(unique = true, length = 18)
 	private String cnpj;
 
+	private String zipCode;
+	
 	@Column(nullable = false)
 	private String address;
 
@@ -52,8 +46,6 @@ public class Community  implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "city_id", nullable = false)
 	private City city;
-
-	private String zipCode;
 
 	private String phone;
 	private String mobile;
@@ -67,23 +59,23 @@ public class Community  implements Serializable {
 
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
-
-	public Community() {
+	
+	public MainChurch() {
 	}
 
-	public Community(Long id, String name, String corporateName, UnityType unityType, String cnpj, String address,
-			String number, String complement, City city, String zipCode, String phone, String mobile, String email,
+	public MainChurch(Long id, String name, String corporateName, String cnpj, String zipCode,
+			String address, String number, String complement, City city, String phone, String mobile, String email,
 			String website) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.corporateName = corporateName;
-		this.unityType = unityType;
 		this.cnpj = cnpj;
+		this.zipCode = zipCode;
 		this.address = address;
 		this.number = number;
 		this.complement = complement;
 		this.city = city;
-		this.zipCode = zipCode;
 		this.phone = phone;
 		this.mobile = mobile;
 		this.email = email;
@@ -114,20 +106,20 @@ public class Community  implements Serializable {
 		this.corporateName = corporateName;
 	}
 
-	public UnityType getUnityType() {
-		return unityType;
-	}
-
-	public void setUnityType(UnityType unityType) {
-		this.unityType = unityType;
-	}
-
 	public String getCnpj() {
 		return cnpj;
 	}
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getAddress() {
@@ -158,12 +150,8 @@ public class Community  implements Serializable {
 		return city;
 	}
 
-	public String getZipCode() {
-		return zipCode;
-	}
-
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
+	public void setCity(City city) {
+		this.city = city;
 	}
 
 	public String getPhone() {
@@ -211,7 +199,7 @@ public class Community  implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Community other = (Community) obj;
+		MainChurch other = (MainChurch) obj;
 		return Objects.equals(id, other.id);
 	}
 }

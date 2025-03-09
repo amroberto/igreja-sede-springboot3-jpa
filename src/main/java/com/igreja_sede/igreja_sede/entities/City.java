@@ -1,5 +1,6 @@
 package com.igreja_sede.igreja_sede.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -12,7 +13,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cities")
-public class City {
+public class City  implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
