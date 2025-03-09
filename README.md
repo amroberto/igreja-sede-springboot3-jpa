@@ -36,24 +36,24 @@ Os membros da igreja são as pessoas que ocupam os cargos de liderança nas comu
 A API proporciona os seguintes endpoints para realizar as operações de CRUD (Create, Read, Update, Delete) para as entidades da igreja:
 
 ### **Igreja Sede**
-- `GET /api/sedes` - Obtém todas as sedes da igreja.
-- `POST /api/sedes` - Cria uma nova sede.
+- `GET /mainchurch` - Obtém todas as sedes da igreja.
+- `POST /mainchurch` - Cria uma nova sede.
 
 ### **Sínodos**
-- `GET /api/synods` - Obtém todos os sínodos.
-- `POST /api/synods` - Cria um novo sínodo.
+- `GET /synods` - Obtém todos os sínodos.
+- `POST /synods` - Cria um novo sínodo.
 
 ### **Comunidades**
-- `GET /api/communities` - Obtém todas as comunidades.
-- `POST /api/communities` - Cria uma nova comunidade (pode ser uma paróquia ou ponto de pregação).
+- `GET /communities` - Obtém todas as comunidades.
+- `POST /communities` - Cria uma nova comunidade (pode ser uma paróquia ou ponto de pregação).
   
 ### **Lideranças**
-- `GET /api/leaderships` - Obtém todas as lideranças de uma comunidade ou sínodo.
-- `POST /api/leaderships` - Cria uma nova liderança.
+- `GET /leaderships` - Obtém todas as lideranças de uma comunidade ou sínodo.
+- `POST /leaderships` - Cria uma nova liderança.
 
 ### **Membros**
-- `GET /api/members` - Obtém todos os membros da igreja.
-- `POST /api/members` - Cria um novo membro.
+- `GET /members` - Obtém todos os membros da igreja.
+- `POST /members` - Cria um novo membro.
 
 ## Tecnologias Utilizadas
 
