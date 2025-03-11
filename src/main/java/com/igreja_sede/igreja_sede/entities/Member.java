@@ -69,19 +69,11 @@ public class Member  implements Serializable {
     @ManyToOne
     @JoinColumn(name = "community_id")
     private Community community;
-
+    
     private boolean active;
 
     @Column(nullable = true)
     private LocalDate birthDate;
-    
-    @ManyToOne
-    @JoinColumn(name = "father_id", nullable = true)
-    private Member father;
-
-    @ManyToOne
-    @JoinColumn(name = "mother_id", nullable = true)
-    private Member mother;
 
     private boolean isContributor;
 
@@ -96,6 +88,15 @@ public class Member  implements Serializable {
     
     @CreationTimestamp
     private LocalDateTime updatedAt;
+    
+    @ManyToOne
+    @JoinColumn(name = "father_id", nullable = true)
+    private Member father;
+
+    @ManyToOne
+    @JoinColumn(name = "mother_id", nullable = true)
+    private Member mother;
+
     
     public Member() {
     }

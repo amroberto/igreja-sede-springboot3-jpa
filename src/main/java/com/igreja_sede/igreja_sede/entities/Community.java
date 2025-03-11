@@ -23,7 +23,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "communities")
 public class Community  implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -48,14 +47,6 @@ public class Community  implements Serializable {
 
 	private String number;
 	private String complement;
-
-	@ManyToOne
-	@JoinColumn(name = "city_id", nullable = false)
-	private City city;
-
-	@ManyToOne
-	@JoinColumn(name = "synod_id", nullable = false)
-	private Synod synod;
 	
 	private String zipCode;
 
@@ -72,13 +63,23 @@ public class Community  implements Serializable {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
+	@ManyToOne
+	@JoinColumn(name = "city_id", nullable = false)
+	private City city;
+
+	@ManyToOne
+	@JoinColumn(name = "synod_id", nullable = false)
+	private Synod synod;
+	
+	
 	public Community() {
 	}
-
+	
 	
 	public Community(Long id, String name, String corporateName, UnityType unityType, String cnpj, String address,
-			String number, String complement, City city, Synod synod, String zipCode, String phone, String mobile,
-			String email, String website) {
+			String number, String complement, String zipCode, String phone, String mobile, String email, String website,
+			City city, Synod synod) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.corporateName = corporateName;
@@ -87,15 +88,14 @@ public class Community  implements Serializable {
 		this.address = address;
 		this.number = number;
 		this.complement = complement;
-		this.city = city;
-		this.synod = synod;
 		this.zipCode = zipCode;
 		this.phone = phone;
 		this.mobile = mobile;
 		this.email = email;
 		this.website = website;
+		this.city = city;
+		this.synod = synod;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -165,10 +165,6 @@ public class Community  implements Serializable {
 		return city;
 	}
 
-	public Synod getSynod() {
-		return synod;
-	}
-
 	public String getZipCode() {
 		return zipCode;
 	}
@@ -213,6 +209,7 @@ public class Community  implements Serializable {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
