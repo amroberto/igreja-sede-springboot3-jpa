@@ -55,7 +55,9 @@ public class Synod implements Serializable{
 	public Synod(Long id, String name, String corporateName, String cnpj, String zipCode, String address, String number,
 			String complement, City city, String phone, String mobile, String email, String website,
 			MainChurch mainChurch) {
-		super();
+		if (mainChurch == null) {
+	        throw new IllegalArgumentException("MainChurch não pode ser nulo");
+	    }
 		this.id = id;
 		this.name = name;
 		this.corporateName = corporateName;

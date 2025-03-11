@@ -11,6 +11,7 @@ import com.igreja_sede.igreja_sede.entities.City;
 import com.igreja_sede.igreja_sede.entities.Community;
 import com.igreja_sede.igreja_sede.entities.MainChurch;
 import com.igreja_sede.igreja_sede.entities.Member;
+import com.igreja_sede.igreja_sede.entities.Position;
 import com.igreja_sede.igreja_sede.entities.State;
 import com.igreja_sede.igreja_sede.entities.Synod;
 import com.igreja_sede.igreja_sede.entities.User;
@@ -20,6 +21,7 @@ import com.igreja_sede.igreja_sede.repositories.CityRepository;
 import com.igreja_sede.igreja_sede.repositories.CommunityRepository;
 import com.igreja_sede.igreja_sede.repositories.MainChurchRepository;
 import com.igreja_sede.igreja_sede.repositories.MemberRepository;
+import com.igreja_sede.igreja_sede.repositories.PositionRepository;
 import com.igreja_sede.igreja_sede.repositories.StateRepository;
 import com.igreja_sede.igreja_sede.repositories.SynodRepository;
 import com.igreja_sede.igreja_sede.repositories.UserRepository;
@@ -48,6 +50,10 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private MemberRepository memberRepository;
+	
+	@Autowired
+	private PositionRepository positionRepository;
+	
 	
 	@Override
 	public void run(String... args) throws Exception {	
@@ -85,6 +91,14 @@ public class TestConfig implements CommandLineRunner {
         State s27 = new State(null, "Distrito Federal", "DF");
         stateRepository.saveAll(Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27));
 
+        Position p1 = new Position(null, "Presidente");
+        Position p2 = new Position(null, "Vice-residente");
+        Position p3 = new Position(null, "Tesoureiro");
+        Position p4 = new Position(null, "Vice-tesoureiro");
+        Position p5 = new Position(null, "Secretário");
+        Position p6 = new Position(null, "Vice-secretário");
+        Position p7 = new Position(null, "Vogal");
+        positionRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7));        
         
         City c1 = new City(null, "ALTA FLORESTA D OESTE", 1100015, s1);
         City c2 = new City(null, "ARIQUEME", 1100023, s1);
